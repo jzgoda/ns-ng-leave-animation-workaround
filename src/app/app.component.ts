@@ -9,7 +9,22 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "ns-app",
-  templateUrl: "./app.component.html",
+  template: `<GridLayout rows="*, auto, auto">
+    <StackLayout row="0" rowSpan="3" verticalAlignment="center">
+      <Button text="Tap Me" (tap)="tap()" class="btn -primary"></Button>
+    </StackLayout>
+    <GridLayout
+      row="1"
+      class="notification"
+      [@stateFade]="show ? 'show' : 'hide'"
+    >
+      <Label text="Hello!"></Label>
+    </GridLayout>
+  </GridLayout>`,
+  styles: [
+    "Button.-primary { font-size: 18; background-color: #0d2d6c; }",
+    ".notification { color: #ffffff; font-size: 26; text-align: center; padding: 10; background-color: #0d2d6c; }",
+  ],
   animations: [
     trigger("stateFade", [
       state("show", style({ opacity: 1, transform: "translateY(0)" })),
