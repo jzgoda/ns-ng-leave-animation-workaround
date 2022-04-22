@@ -12,10 +12,20 @@ import { Component } from "@angular/core";
   templateUrl: "./app.component.html",
   animations: [
     trigger("stateFade", [
-      state("show", style({ opacity: 1 })),
-      state("hide", style({ opacity: 0 })),
-      transition("show => hide", [animate("250ms", style({ opacity: 0 }))]),
-      transition("hide => show", [animate("250ms", style({ opacity: 1 }))]),
+      state("show", style({ opacity: 1, transform: "translateY(0)" })),
+      state("hide", style({ opacity: 0, transform: "translateY(70)" })),
+      transition("show => hide", [
+        animate(
+          "0.5s ease-in",
+          style({ opacity: 0, transform: "translateY(70)" })
+        ),
+      ]),
+      transition("hide => show", [
+        animate(
+          "0.5s ease-out",
+          style({ opacity: 1, transform: "translateY(0)" })
+        ),
+      ]),
     ]),
   ],
 })
