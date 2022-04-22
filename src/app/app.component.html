@@ -1,3 +1,8 @@
-<GridLayout>
-  <page-router-outlet></page-router-outlet>
+<GridLayout rows="*, auto">
+  <StackLayout row="0" rowSpan="2" verticalAlignment="center">
+    <Button text="Tap Me" (tap)="tap()" class="btn -primary m-0"></Button>
+  </StackLayout>
+  <GridLayout *ngIf="show" row="1" backgroundColor="rgb(078, 042, 132)">
+    <Label text="Hello!" class="notification"></Label>
+  </GridLayout>
 </GridLayout>
