@@ -9,9 +9,9 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "ns-app",
-  template: `<GridLayout rows="*, auto, auto">
+  template: `<GridLayout rows="*, auto, auto" backgroundColor="#ffffff">
     <StackLayout row="0" rowSpan="3" verticalAlignment="center">
-      <Button text="Tap Me" (tap)="tap()" class="btn -primary"></Button>
+      <Button text="Tap Me" (tap)="show = !show" class="btn -primary"></Button>
     </StackLayout>
     <GridLayout
       row="1"
@@ -22,7 +22,7 @@ import { Component } from "@angular/core";
     </GridLayout>
   </GridLayout>`,
   styles: [
-    "Button.-primary { font-size: 18; background-color: #0d2d6c; }",
+    "Button.-primary { font-size: 18; background-color: #0d2d6c; color: #ffffff; }",
     ".notification { color: #ffffff; font-size: 26; text-align: center; padding: 10; background-color: #0d2d6c; }",
   ],
   animations: [
@@ -46,8 +46,4 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   show: boolean = false;
-
-  tap(): void {
-    this.show = !this.show;
-  }
 }
